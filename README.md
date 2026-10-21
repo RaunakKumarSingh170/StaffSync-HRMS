@@ -13,10 +13,3 @@ StaffSync is an end-to-end Human Resource Management platform built with a React
 - **Backend**: Node.js, Express.js, JSON Web Tokens (JWT), Bcrypt.js
 - **Database**: MongoDB Atlas via Mongoose ODM
 
-## Setup & Running Locally
-
-### 1. Backend
-```bash
-cd server
-npm install
-node server.js
