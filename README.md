@@ -15,8 +15,3 @@ StaffSync is an end-to-end Human Resource Management platform built with a React
 
 ## Setup & Running Locally
 
-### 1. Backend
-```bash
-cd server
-npm install
-node server.js
