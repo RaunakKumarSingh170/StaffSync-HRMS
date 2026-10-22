@@ -27,13 +27,13 @@ const seedDB = async () => {
     // 1. Create Users across diverse departments
     const users = await User.insertMany([
       {
-        name: 'Sarah Connor',
+        name: 'Donald Diddy',
         email: 'admin@staffsync.com',
         password: hashedPassword,
         role: 'Admin',
         department: 'Human Resources',
         position: 'VP of People & Culture',
-        salary: 115000,
+        salary: 10000000,
         status: 'Active',
         leaveQuota: { casual: 14, sick: 10, earned: 20 },
       },
@@ -60,8 +60,8 @@ const seedDB = async () => {
         leaveQuota: { casual: 12, sick: 10, earned: 15 },
       },
       {
-        name: 'Marcus Vance',
-        email: 'marcus@staffsync.com',
+        name: 'Baskit Vance',
+        email: 'baskit@staffsync.com',
         password: hashedPassword,
         role: 'Employee',
         department: 'Marketing',
@@ -82,7 +82,7 @@ const seedDB = async () => {
         leaveQuota: { casual: 12, sick: 10, earned: 15 },
       },
       {
-        name: 'David Chen',
+        name: 'David Dude',
         email: 'david@staffsync.com',
         password: hashedPassword,
         role: 'Employee',
@@ -93,8 +93,8 @@ const seedDB = async () => {
         leaveQuota: { casual: 12, sick: 10, earned: 15 },
       },
       {
-        name: 'Chloe Dupont',
-        email: 'chloe@staffsync.com',
+        name: 'Manu Bhardwaj',
+        email: 'manu@staffsync.com',
         password: hashedPassword,
         role: 'Employee',
         department: 'Marketing',
@@ -104,8 +104,8 @@ const seedDB = async () => {
         leaveQuota: { casual: 12, sick: 10, earned: 15 },
       },
       {
-        name: 'Jordan Reed',
-        email: 'jordan@staffsync.com',
+        name: 'Tulsi Khan',
+        email: 'tulsi@staffsync.com',
         password: hashedPassword,
         role: 'Employee',
         department: 'Sales',
@@ -115,8 +115,8 @@ const seedDB = async () => {
         leaveQuota: { casual: 12, sick: 10, earned: 15 },
       },
       {
-        name: 'Aaliyah Patel',
-        email: 'aaliyah@staffsync.com',
+        name: 'Abdul Pandey',
+        email: 'abdul@staffsync.com',
         password: hashedPassword,
         role: 'Employee',
         department: 'Customer Success',
