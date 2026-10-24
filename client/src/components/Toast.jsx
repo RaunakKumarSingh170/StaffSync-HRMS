@@ -15,15 +15,15 @@ export default function Toast({ toasts, removeToast }) {
             <div style={{ flexShrink: 0, marginTop: '1px' }}>
               {isSuccess && <CheckCircle2 size={18} color="#10b981" />}
               {isError && <AlertCircle size={18} color="#f43f5e" />}
-              {!isSuccess && !isError && <Info size={18} color="#38bdf8" />}
+              {!isSuccess && !isError && <Info size={18} color="#90DDF0" />}
             </div>
             <div style={{ flex: 1 }}>
               {toast.title && (
-                <div style={{ fontWeight: '600', color: '#ffffff', marginBottom: '2px', fontSize: '13px' }}>
+                <div style={{ fontWeight: '700', color: '#F0EDEE', marginBottom: '2px', fontSize: '13px' }}>
                   {toast.title}
                 </div>
               )}
-              <div style={{ color: '#cbd5e1', fontSize: '12.5px', lineHeight: '1.4' }}>
+              <div style={{ color: '#D5DFE1', fontSize: '12.5px', lineHeight: '1.4' }}>
                 {toast.message}
               </div>
             </div>
@@ -32,7 +32,7 @@ export default function Toast({ toasts, removeToast }) {
               style={{
                 background: 'transparent',
                 border: 'none',
-                color: '#64748b',
+                color: '#A6C9CD',
                 cursor: 'pointer',
                 padding: '2px',
                 display: 'flex',

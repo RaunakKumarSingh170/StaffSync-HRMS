@@ -62,18 +62,18 @@ export default function AddEmployeeModal({ isOpen, onClose, onAddEmployee }) {
                 width: '36px',
                 height: '36px',
                 borderRadius: '8px',
-                background: '#eef2ff',
+                background: '#EAF2F3',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: '#4f46e5',
+                color: '#2C666E',
               }}
             >
               <UserPlus size={18} />
             </div>
             <div>
-              <h3 style={{ fontSize: '17px', fontWeight: '600', color: '#0f172a' }}>Add Team Member</h3>
-              <p style={{ fontSize: '12.5px', color: '#64748b' }}>Provision a new employee profile in StaffSync</p>
+              <h3 style={{ fontSize: '17px', fontWeight: '700', color: 'var(--text-primary)' }}>Add Team Member</h3>
+              <p style={{ fontSize: '12.5px', color: 'var(--text-secondary)' }}>Provision a new employee profile in StaffSync</p>
             </div>
           </div>
           <button onClick={onClose} className="btn btn-ghost" style={{ padding: '4px' }}>
@@ -100,7 +100,7 @@ export default function AddEmployeeModal({ isOpen, onClose, onAddEmployee }) {
         <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
           <div>
             <label style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <User size={14} color="#64748b" /> Full Name *
+              <User size={14} color="#2C666E" /> Full Name *
             </label>
             <input
               type="text"
@@ -113,7 +113,7 @@ export default function AddEmployeeModal({ isOpen, onClose, onAddEmployee }) {
 
           <div>
             <label style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <Mail size={14} color="#64748b" /> Corporate Email *
+              <Mail size={14} color="#2C666E" /> Corporate Email *
             </label>
             <input
               type="email"
@@ -127,7 +127,7 @@ export default function AddEmployeeModal({ isOpen, onClose, onAddEmployee }) {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
             <div>
               <label style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <Briefcase size={14} color="#64748b" /> Department *
+                <Briefcase size={14} color="#2C666E" /> Department *
               </label>
               <select
                 value={formData.department}
@@ -143,7 +143,7 @@ export default function AddEmployeeModal({ isOpen, onClose, onAddEmployee }) {
 
             <div>
               <label style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <Shield size={14} color="#64748b" /> Access Role *
+                <Shield size={14} color="#2C666E" /> Access Role *
               </label>
               <select
                 value={formData.role}
@@ -172,7 +172,7 @@ export default function AddEmployeeModal({ isOpen, onClose, onAddEmployee }) {
 
             <div>
               <label style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <DollarSign size={14} color="#64748b" /> Base Salary ($)
+                <DollarSign size={14} color="#2C666E" /> Base Salary ($)
               </label>
               <input
                 type="number"
@@ -185,12 +185,12 @@ export default function AddEmployeeModal({ isOpen, onClose, onAddEmployee }) {
 
           <div
             style={{
-              background: '#f8fafc',
-              border: '1px solid #e2e8f0',
+              background: 'var(--bg-subtle)',
+              border: '1px solid var(--border)',
               padding: '10px 12px',
               borderRadius: '6px',
               fontSize: '12px',
-              color: '#64748b',
+              color: 'var(--text-secondary)',
             }}
           >
             Default temporary password will be <code>password123</code>. The employee can update it upon initial login.

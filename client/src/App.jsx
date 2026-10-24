@@ -527,8 +527,8 @@ export default function App() {
                     <div>
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
                         <div>
-                          <h3 style={{ fontSize: '16px', fontWeight: '600', color: '#0f172a' }}>Workforce Roster</h3>
-                          <p style={{ fontSize: '12px', color: '#64748b' }}>Quick member directory & actions</p>
+                          <h3 style={{ fontSize: '16px', fontWeight: '700', color: 'var(--text-primary)' }}>Workforce Roster</h3>
+                          <p style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>Quick member directory & actions</p>
                         </div>
                         <button onClick={() => setActiveTab('directory')} className="btn btn-secondary btn-sm">
                           View All ({employees.length})
@@ -601,8 +601,8 @@ export default function App() {
 
               <div className="card" style={{ padding: '24px' }}>
                 <div style={{ marginBottom: '16px' }}>
-                  <h3 style={{ fontSize: '16px', fontWeight: '600', color: '#0f172a' }}>Punch Log History</h3>
-                  <p style={{ fontSize: '12px', color: '#64748b' }}>Audited biometric check-in & check-out ledger</p>
+                  <h3 style={{ fontSize: '16px', fontWeight: '700', color: 'var(--text-primary)' }}>Punch Log History</h3>
+                  <p style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>Audited biometric check-in & check-out ledger</p>
                 </div>
 
                 <div className="table-responsive">
@@ -619,14 +619,14 @@ export default function App() {
                     <tbody>
                       {attendanceLogs.length === 0 ? (
                         <tr>
-                          <td colSpan={5} style={{ textAlign: 'center', padding: '30px', color: '#94a3b8' }}>
+                          <td colSpan={5} style={{ textAlign: 'center', padding: '30px', color: 'var(--text-muted)' }}>
                             No attendance logs recorded yet.
                           </td>
                         </tr>
                       ) : (
                         attendanceLogs.map((log) => (
                           <tr key={log._id}>
-                            <td style={{ fontWeight: '500', color: '#0f172a' }}>{log.date}</td>
+                            <td style={{ fontWeight: '600', color: 'var(--text-primary)' }}>{log.date}</td>
                             <td>
                               {log.checkIn
                                 ? new Date(log.checkIn).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
@@ -637,7 +637,7 @@ export default function App() {
                                 ? new Date(log.checkOut).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
                                 : '--:--'}
                             </td>
-                            <td style={{ fontFamily: 'var(--font-mono)', fontWeight: '600', color: '#0f172a' }}>
+                            <td style={{ fontFamily: 'var(--font-mono)', fontWeight: '700', color: 'var(--text-primary)' }}>
                               {log.workHours > 0 ? `${log.workHours} hrs` : 'In Progress'}
                             </td>
                             <td>
