@@ -12,9 +12,9 @@ import {
   CartesianGrid,
   Legend,
 } from 'recharts';
-import { Users, UserCheck, CalendarClock, Megaphone, TrendingUp, ArrowUpRight } from 'lucide-react';
+import { Users, UserCheck, CalendarClock, Megaphone, ArrowUpRight } from 'lucide-react';
 
-const DEPARTMENT_COLORS = ['#4f46e5', '#06b6d4', '#10b981', '#f59e0b', '#8b5cf6', '#ec4899', '#64748b'];
+const DEPARTMENT_COLORS = ['#2C666E', '#07393C', '#90DDF0', '#56949F', '#10b981', '#f59e0b', '#e11d48'];
 
 // Custom Tooltip for Charts
 function CustomTooltip({ active, payload, label }) {
@@ -22,17 +22,17 @@ function CustomTooltip({ active, payload, label }) {
     return (
       <div
         style={{
-          background: '#0f172a',
-          color: '#ffffff',
+          background: '#07393C',
+          color: '#F0EDEE',
           padding: '8px 12px',
           borderRadius: '6px',
           boxShadow: 'var(--shadow-lg)',
           fontSize: '12px',
-          border: '1px solid #334155',
+          border: '1px solid #144D50',
         }}
       >
-        <p style={{ fontWeight: '600', marginBottom: '2px' }}>{label || payload[0].name}</p>
-        <p style={{ color: '#93c5fd' }}>
+        <p style={{ fontWeight: '700', marginBottom: '2px' }}>{label || payload[0].name}</p>
+        <p style={{ color: '#90DDF0' }}>
           {payload[0].name || 'Value'}: <strong>{payload[0].value}</strong>
         </p>
       </div>
@@ -80,14 +80,14 @@ export default function AnalyticsCharts({ analyticsData, totalEmployees = 0, pen
         {/* Metric 1 */}
         <div className="card" style={{ padding: '20px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-            <span style={{ fontSize: '13px', fontWeight: '500', color: '#64748b' }}>Total Workforce</span>
+            <span style={{ fontSize: '13px', fontWeight: '600', color: 'var(--text-secondary)' }}>Total Workforce</span>
             <div
               style={{
                 width: '32px',
                 height: '32px',
                 borderRadius: '8px',
-                background: '#eef2ff',
-                color: '#4f46e5',
+                background: '#EAF2F3',
+                color: '#2C666E',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -96,7 +96,7 @@ export default function AnalyticsCharts({ analyticsData, totalEmployees = 0, pen
               <Users size={18} />
             </div>
           </div>
-          <div style={{ fontSize: '28px', fontWeight: '700', color: '#0f172a', marginTop: '10px', letterSpacing: '-0.02em' }}>
+          <div style={{ fontSize: '28px', fontWeight: '700', color: 'var(--text-primary)', marginTop: '10px', letterSpacing: '-0.02em' }}>
             {totalEmployees || analyticsData?.totalEmployees || 9}
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginTop: '8px' }}>
@@ -108,21 +108,21 @@ export default function AnalyticsCharts({ analyticsData, totalEmployees = 0, pen
                 background: '#ecfdf5',
                 color: '#059669',
                 fontSize: '11.5px',
-                fontWeight: '600',
+                fontWeight: '700',
                 padding: '2px 6px',
                 borderRadius: '4px',
               }}
             >
               <ArrowUpRight size={13} /> +12.5%
             </span>
-            <span style={{ fontSize: '12px', color: '#64748b' }}>vs last quarter</span>
+            <span style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>vs last quarter</span>
           </div>
         </div>
 
         {/* Metric 2 */}
         <div className="card" style={{ padding: '20px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-            <span style={{ fontSize: '13px', fontWeight: '500', color: '#64748b' }}>Punch-In Attendance</span>
+            <span style={{ fontSize: '13px', fontWeight: '600', color: 'var(--text-secondary)' }}>Punch-In Attendance</span>
             <div
               style={{
                 width: '32px',
@@ -138,7 +138,7 @@ export default function AnalyticsCharts({ analyticsData, totalEmployees = 0, pen
               <UserCheck size={18} />
             </div>
           </div>
-          <div style={{ fontSize: '28px', fontWeight: '700', color: '#0f172a', marginTop: '10px', letterSpacing: '-0.02em' }}>
+          <div style={{ fontSize: '28px', fontWeight: '700', color: 'var(--text-primary)', marginTop: '10px', letterSpacing: '-0.02em' }}>
             {attendanceRate}%
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginTop: '8px' }}>
@@ -150,21 +150,21 @@ export default function AnalyticsCharts({ analyticsData, totalEmployees = 0, pen
                 background: '#ecfdf5',
                 color: '#059669',
                 fontSize: '11.5px',
-                fontWeight: '600',
+                fontWeight: '700',
                 padding: '2px 6px',
                 borderRadius: '4px',
               }}
             >
               <ArrowUpRight size={13} /> {activeToday} Present
             </span>
-            <span style={{ fontSize: '12px', color: '#64748b' }}>checked in today</span>
+            <span style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>checked in today</span>
           </div>
         </div>
 
         {/* Metric 3 */}
         <div className="card" style={{ padding: '20px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-            <span style={{ fontSize: '13px', fontWeight: '500', color: '#64748b' }}>Pending Leave Approvals</span>
+            <span style={{ fontSize: '13px', fontWeight: '600', color: 'var(--text-secondary)' }}>Pending Leave Approvals</span>
             <div
               style={{
                 width: '32px',
@@ -186,31 +186,31 @@ export default function AnalyticsCharts({ analyticsData, totalEmployees = 0, pen
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginTop: '8px' }}>
             <span
               style={{
-                background: pendingLeaves > 0 ? '#fef3c7' : '#f1f5f9',
-                color: pendingLeaves > 0 ? '#b45309' : '#64748b',
+                background: pendingLeaves > 0 ? '#fef3c7' : 'var(--bg-subtle)',
+                color: pendingLeaves > 0 ? '#b45309' : 'var(--text-secondary)',
                 fontSize: '11.5px',
-                fontWeight: '600',
+                fontWeight: '700',
                 padding: '2px 6px',
                 borderRadius: '4px',
               }}
             >
               {pendingLeaves > 0 ? 'Requires Action' : 'All clear'}
             </span>
-            <span style={{ fontSize: '12px', color: '#64748b' }}>awaiting manager review</span>
+            <span style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>awaiting manager review</span>
           </div>
         </div>
 
         {/* Metric 4 */}
         <div className="card" style={{ padding: '20px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-            <span style={{ fontSize: '13px', fontWeight: '500', color: '#64748b' }}>Active Bulletins</span>
+            <span style={{ fontSize: '13px', fontWeight: '600', color: 'var(--text-secondary)' }}>Active Bulletins</span>
             <div
               style={{
                 width: '32px',
                 height: '32px',
                 borderRadius: '8px',
-                background: '#eff6ff',
-                color: '#2563eb',
+                background: '#EAF2F3',
+                color: '#2C666E',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -219,23 +219,23 @@ export default function AnalyticsCharts({ analyticsData, totalEmployees = 0, pen
               <Megaphone size={18} />
             </div>
           </div>
-          <div style={{ fontSize: '28px', fontWeight: '700', color: '#0f172a', marginTop: '10px', letterSpacing: '-0.02em' }}>
+          <div style={{ fontSize: '28px', fontWeight: '700', color: 'var(--text-primary)', marginTop: '10px', letterSpacing: '-0.02em' }}>
             {bulletinsCount}
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginTop: '8px' }}>
             <span
               style={{
-                background: '#f1f5f9',
-                color: '#475569',
+                background: 'var(--bg-subtle)',
+                color: 'var(--text-secondary)',
                 fontSize: '11.5px',
-                fontWeight: '600',
+                fontWeight: '700',
                 padding: '2px 6px',
                 borderRadius: '4px',
               }}
             >
               Company-wide
             </span>
-            <span style={{ fontSize: '12px', color: '#64748b' }}>broadcasted notice</span>
+            <span style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>broadcasted notice</span>
           </div>
         </div>
       </div>
@@ -245,10 +245,10 @@ export default function AnalyticsCharts({ analyticsData, totalEmployees = 0, pen
         {/* Chart 1: Department Distribution Donut */}
         <div className="card" style={{ padding: '22px' }}>
           <div style={{ marginBottom: '16px' }}>
-            <h4 style={{ fontSize: '15px', fontWeight: '600', color: '#0f172a' }}>
+            <h4 style={{ fontSize: '15px', fontWeight: '700', color: 'var(--text-primary)' }}>
               Workforce Department Distribution
             </h4>
-            <p style={{ fontSize: '12.5px', color: '#64748b' }}>Headcount allocation across business units</p>
+            <p style={{ fontSize: '12.5px', color: 'var(--text-secondary)' }}>Headcount allocation across business units</p>
           </div>
 
           <div style={{ height: '260px', width: '100%' }}>
@@ -282,10 +282,10 @@ export default function AnalyticsCharts({ analyticsData, totalEmployees = 0, pen
         {/* Chart 2: Leave Application Trends Area Chart */}
         <div className="card" style={{ padding: '22px' }}>
           <div style={{ marginBottom: '16px' }}>
-            <h4 style={{ fontSize: '15px', fontWeight: '600', color: '#0f172a' }}>
+            <h4 style={{ fontSize: '15px', fontWeight: '700', color: 'var(--text-primary)' }}>
               Leave Application Volume Trends
             </h4>
-            <p style={{ fontSize: '12.5px', color: '#64748b' }}>Monthly distribution of employee time-off requests</p>
+            <p style={{ fontSize: '12.5px', color: 'var(--text-secondary)' }}>Monthly distribution of employee time-off requests</p>
           </div>
 
           <div style={{ height: '260px', width: '100%' }}>
@@ -293,19 +293,19 @@ export default function AnalyticsCharts({ analyticsData, totalEmployees = 0, pen
               <AreaChart data={trendsData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                 <defs>
                   <linearGradient id="colorApplications" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#4f46e5" stopOpacity={0.4} />
-                    <stop offset="95%" stopColor="#4f46e5" stopOpacity={0.0} />
+                    <stop offset="5%" stopColor="#2C666E" stopOpacity={0.45} />
+                    <stop offset="95%" stopColor="#2C666E" stopOpacity={0.0} />
                   </linearGradient>
                 </defs>
-                <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" vertical={false} />
-                <XAxis dataKey="month" stroke="#94a3b8" fontSize={11.5} tickLine={false} />
-                <YAxis stroke="#94a3b8" fontSize={11.5} tickLine={false} allowDecimals={false} />
+                <CartesianGrid strokeDasharray="3 3" stroke="var(--border-subtle)" vertical={false} />
+                <XAxis dataKey="month" stroke="var(--text-muted)" fontSize={11.5} tickLine={false} />
+                <YAxis stroke="var(--text-muted)" fontSize={11.5} tickLine={false} allowDecimals={false} />
                 <Tooltip content={<CustomTooltip />} />
                 <Area
                   type="monotone"
                   dataKey="applications"
                   name="Applications"
-                  stroke="#4f46e5"
+                  stroke="#2C666E"
                   strokeWidth={2.5}
                   fillOpacity={1}
                   fill="url(#colorApplications)"

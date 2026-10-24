@@ -27,18 +27,18 @@ export default function ConfirmModal({
                 width: '38px',
                 height: '38px',
                 borderRadius: '8px',
-                background: isDanger ? '#fee2e2' : '#e0e7ff',
+                background: isDanger ? '#fee2e2' : '#EAF2F3',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: isDanger ? '#dc2626' : '#4338ca',
+                color: isDanger ? '#dc2626' : '#2C666E',
                 flexShrink: 0,
               }}
             >
               <AlertTriangle size={20} />
             </div>
             <div>
-              <h3 style={{ fontSize: '16px', fontWeight: '600', color: '#0f172a' }}>{title}</h3>
+              <h3 style={{ fontSize: '16px', fontWeight: '700', color: 'var(--text-primary)' }}>{title}</h3>
             </div>
           </div>
           <button
@@ -51,7 +51,7 @@ export default function ConfirmModal({
           </button>
         </div>
 
-        <p style={{ color: '#475569', fontSize: '13.5px', lineHeight: '1.5', marginBottom: '24px' }}>
+        <p style={{ color: 'var(--text-secondary)', fontSize: '13.5px', lineHeight: '1.5', marginBottom: '24px' }}>
           {message}
         </p>
 

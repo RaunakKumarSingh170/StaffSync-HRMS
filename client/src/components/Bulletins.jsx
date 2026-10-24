@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Megaphone, PlusCircle, Trash2, Calendar, User, Sparkles } from 'lucide-react';
+import { Megaphone, PlusCircle, Trash2, Calendar, User } from 'lucide-react';
 
 export default function Bulletins({
   user,
@@ -45,8 +45,8 @@ export default function Bulletins({
                 width: '32px',
                 height: '32px',
                 borderRadius: '8px',
-                background: '#eef2ff',
-                color: '#4f46e5',
+                background: '#EAF2F3',
+                color: '#2C666E',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -55,8 +55,8 @@ export default function Bulletins({
               <Megaphone size={17} />
             </div>
             <div>
-              <h3 style={{ fontSize: '16px', fontWeight: '600', color: '#0f172a' }}>Publish Bulletin</h3>
-              <p style={{ fontSize: '12px', color: '#64748b' }}>Broadcast official announcements</p>
+              <h3 style={{ fontSize: '16px', fontWeight: '700', color: 'var(--text-primary)' }}>Publish Bulletin</h3>
+              <p style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>Broadcast official announcements</p>
             </div>
           </div>
 
@@ -98,14 +98,14 @@ export default function Bulletins({
       {/* Announcements Stream */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <h3 style={{ fontSize: '16px', fontWeight: '600', color: '#0f172a' }}>
+          <h3 style={{ fontSize: '16px', fontWeight: '700', color: 'var(--text-primary)' }}>
             Company Bulletins & Notices ({announcements.length})
           </h3>
-          <span style={{ fontSize: '12.5px', color: '#64748b' }}>Latest internal dispatches</span>
+          <span style={{ fontSize: '12.5px', color: 'var(--text-secondary)' }}>Latest internal dispatches</span>
         </div>
 
         {announcements.length === 0 ? (
-          <div className="card" style={{ padding: '40px', textAlign: 'center', color: '#94a3b8' }}>
+          <div className="card" style={{ padding: '40px', textAlign: 'center', color: 'var(--text-muted)' }}>
             No bulletins published yet.
           </div>
         ) : (
@@ -115,25 +115,25 @@ export default function Bulletins({
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <span
                     style={{
-                      background: '#eff6ff',
-                      color: '#2563eb',
+                      background: '#EAF2F3',
+                      color: '#07393C',
                       fontSize: '11px',
-                      fontWeight: '600',
+                      fontWeight: '700',
                       padding: '2px 8px',
                       borderRadius: '4px',
-                      border: '1px solid #bfdbfe',
+                      border: '1px solid #A6C9CD',
                     }}
                   >
                     Broadcast
                   </span>
-                  <h4 style={{ fontSize: '16px', fontWeight: '600', color: '#0f172a' }}>{item.title}</h4>
+                  <h4 style={{ fontSize: '16px', fontWeight: '700', color: 'var(--text-primary)' }}>{item.title}</h4>
                 </div>
 
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                   <span
                     style={{
                       fontSize: '12px',
-                      color: '#94a3b8',
+                      color: 'var(--text-muted)',
                       display: 'flex',
                       alignItems: 'center',
                       gap: '4px',
@@ -161,25 +161,25 @@ export default function Bulletins({
                 </div>
               </div>
 
-              <p style={{ color: '#334155', fontSize: '13.5px', lineHeight: '1.6', marginTop: '12px' }}>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '13.5px', lineHeight: '1.6', marginTop: '12px' }}>
                 {item.content}
               </p>
 
               <div
                 style={{
                   marginTop: '16px',
-                  borderTop: '1px solid #f1f5f9',
+                  borderTop: '1px solid var(--border-subtle)',
                   paddingTop: '10px',
                   display: 'flex',
                   alignItems: 'center',
                   gap: '6px',
                   fontSize: '12px',
-                  color: '#64748b',
+                  color: 'var(--text-secondary)',
                 }}
               >
-                <User size={13} color="#94a3b8" />
+                <User size={13} color="var(--text-muted)" />
                 <span>Posted by:</span>
-                <strong style={{ color: '#0f172a' }}>{item.author || 'HR Operations'}</strong>
+                <strong style={{ color: 'var(--text-primary)' }}>{item.author || 'HR Operations'}</strong>
               </div>
             </div>
           ))
