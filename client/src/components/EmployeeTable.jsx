@@ -1,12 +1,16 @@
 import React, { useState, useMemo } from 'react';
 import {
   Search,
+  Filter,
   UserPlus,
   Trash2,
   ArrowUpDown,
   ArrowUp,
   ArrowDown,
+  Building,
   Mail,
+  MoreVertical,
+  Check,
 } from 'lucide-react';
 
 const DEPARTMENTS = ['All', 'Engineering', 'Design', 'Human Resources', 'Marketing', 'Sales', 'Customer Success'];
@@ -64,8 +68,8 @@ export default function EmployeeTable({
   }, [filteredEmployees, sortField, sortOrder]);
 
   const getSortIcon = (field) => {
-    if (sortField !== field) return <ArrowUpDown size={12} color="var(--text-muted)" />;
-    return sortOrder === 'asc' ? <ArrowUp size={12} color="#2C666E" /> : <ArrowDown size={12} color="#2C666E" />;
+    if (sortField !== field) return <ArrowUpDown size={12} color="#94a3b8" />;
+    return sortOrder === 'asc' ? <ArrowUp size={12} color="#4f46e5" /> : <ArrowDown size={12} color="#4f46e5" />;
   };
 
   const formatCurrency = (val) => {
@@ -73,6 +77,7 @@ export default function EmployeeTable({
     return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(val);
   };
 
+  // Avatar helper with initials and deterministic color
   const getInitials = (name = '') => {
     const parts = name.split(' ');
     if (parts.length >= 2) return `${parts[0][0]}${parts[1][0]}`.toUpperCase();
@@ -96,7 +101,7 @@ export default function EmployeeTable({
           <div style={{ position: 'relative', flex: 1, maxWidth: '360px' }}>
             <Search
               size={15}
-              color="var(--text-muted)"
+              color="#94a3b8"
               style={{ position: 'absolute', left: '11px', top: '50%', transform: 'translateY(-50%)' }}
             />
             <input
@@ -127,10 +132,10 @@ export default function EmployeeTable({
           <div
             style={{
               display: 'flex',
-              background: 'var(--bg-subtle)',
+              background: '#f1f5f9',
               padding: '3px',
               borderRadius: '8px',
-              border: '1px solid var(--border)',
+              border: '1px solid #e2e8f0',
             }}
           >
             {['All', 'Admin', 'Employee'].map((role) => (
@@ -140,11 +145,11 @@ export default function EmployeeTable({
                 onClick={() => setSelectedRole(role)}
                 style={{
                   background: selectedRole === role ? '#ffffff' : 'transparent',
-                  color: selectedRole === role ? '#07393C' : 'var(--text-secondary)',
+                  color: selectedRole === role ? '#0f172a' : '#64748b',
                   boxShadow: selectedRole === role ? 'var(--shadow-xs)' : 'none',
                   padding: '5px 10px',
                   fontSize: '12px',
-                  fontWeight: selectedRole === role ? '700' : '500',
+                  fontWeight: selectedRole === role ? '600' : '500',
                   borderRadius: '6px',
                   cursor: 'pointer',
                   border: 'none',
@@ -207,7 +212,7 @@ export default function EmployeeTable({
               {sortedEmployees.length === 0 ? (
                 <tr>
                   <td colSpan={currentUser?.role === 'Admin' ? 8 : 6} style={{ textAlign: 'center', padding: '40px' }}>
-                    <div style={{ color: 'var(--text-muted)', fontSize: '13.5px' }}>
+                    <div style={{ color: '#94a3b8', fontSize: '13.5px' }}>
                       No workforce members found matching the specified search criteria.
                     </div>
                     {(searchTerm || selectedDept !== 'All' || selectedRole !== 'All') && (
@@ -240,12 +245,12 @@ export default function EmployeeTable({
                               width: '34px',
                               height: '34px',
                               borderRadius: '50%',
-                              background: '#EAF2F3',
-                              color: '#2C666E',
+                              background: '#e0e7ff',
+                              color: '#4338ca',
                               display: 'flex',
                               alignItems: 'center',
                               justifyContent: 'center',
-                              fontWeight: '700',
+                              fontWeight: '600',
                               fontSize: '12.5px',
                               flexShrink: 0,
                             }}
@@ -253,18 +258,18 @@ export default function EmployeeTable({
                             {initials}
                           </div>
                           <div>
-                            <div style={{ fontWeight: '700', color: 'var(--text-primary)', fontSize: '13.5px' }}>
-                              {emp.name} {isCurrentAuthUser && <span style={{ color: '#2C666E', fontSize: '11px' }}>(You)</span>}
+                            <div style={{ fontWeight: '600', color: '#0f172a', fontSize: '13.5px' }}>
+                              {emp.name} {isCurrentAuthUser && <span style={{ color: '#4f46e5', fontSize: '11px' }}>(You)</span>}
                             </div>
-                            <div style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>{emp.position || 'Staff'}</div>
+                            <div style={{ fontSize: '12px', color: '#64748b' }}>{emp.position || 'Staff'}</div>
                           </div>
                         </div>
                       </td>
 
                       {/* Email */}
                       <td>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-secondary)' }}>
-                          <Mail size={13} color="var(--text-muted)" />
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#475569' }}>
+                          <Mail size={13} color="#94a3b8" />
                           <span>{emp.email}</span>
                         </div>
                       </td>
@@ -273,13 +278,13 @@ export default function EmployeeTable({
                       <td>
                         <span
                           style={{
-                            background: 'var(--bg-subtle)',
-                            border: '1px solid var(--border)',
+                            background: '#f8fafc',
+                            border: '1px solid #e2e8f0',
                             padding: '3px 8px',
                             borderRadius: '6px',
                             fontSize: '12px',
-                            color: 'var(--text-primary)',
-                            fontWeight: '600',
+                            color: '#334155',
+                            fontWeight: '500',
                           }}
                         >
                           {emp.department || 'General'}
@@ -288,13 +293,13 @@ export default function EmployeeTable({
 
                       {/* Designation */}
                       <td>
-                        <span style={{ color: 'var(--text-secondary)', fontSize: '13px' }}>{emp.position}</span>
+                        <span style={{ color: '#334155', fontSize: '13px' }}>{emp.position}</span>
                       </td>
 
                       {/* Compensation (Admin only) */}
                       {currentUser?.role === 'Admin' && (
                         <td>
-                          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '13px', fontWeight: '600', color: 'var(--text-primary)' }}>
+                          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '13px', fontWeight: '500', color: '#0f172a' }}>
                             {formatCurrency(emp.salary)}
                           </span>
                         </td>
@@ -328,7 +333,7 @@ export default function EmployeeTable({
                               <Trash2 size={15} />
                             </button>
                           ) : (
-                            <span style={{ fontSize: '11.5px', color: 'var(--text-muted)' }}>Protected</span>
+                            <span style={{ fontSize: '11.5px', color: '#94a3b8' }}>Protected</span>
                           )}
                         </td>
                       )}
@@ -344,13 +349,13 @@ export default function EmployeeTable({
         <div
           style={{
             padding: '12px 16px',
-            borderTop: '1px solid var(--border)',
-            background: 'var(--bg-subtle)',
+            borderTop: '1px solid #f1f5f9',
+            background: '#fafbfc',
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
             fontSize: '12.5px',
-            color: 'var(--text-secondary)',
+            color: '#64748b',
           }}
         >
           <span>

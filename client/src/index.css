@@ -1,38 +1,36 @@
-@import url('https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700,800,900&display=swap');
-
 :root {
-  /* Typography - Satoshi Font Family */
-  --font-sans: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  /* Linear & Stripe inspired SaaS Palette */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  /* Canvas & Surfaces (#F0EDEE Canvas Palette) */
-  --bg-app: #F0EDEE;
+  /* Canvas & Surfaces */
+  --bg-app: #f8fafc;
   --bg-surface: #ffffff;
-  --bg-subtle: #F6F4F5;
-  --bg-muted: #E2DFE0;
-  --bg-sidebar: #07393C;
-  --bg-sidebar-hover: #0E474B;
-  --bg-sidebar-active: #16565B;
+  --bg-subtle: #f1f5f9;
+  --bg-muted: #e2e8f0;
+  --bg-sidebar: #0f172a;
+  --bg-sidebar-hover: #1e293b;
+  --bg-sidebar-active: #24324d;
 
   /* Typography */
-  --text-primary: #07393C;
-  --text-secondary: #2C666E;
-  --text-muted: #7A8D90;
-  --text-inverted: #F0EDEE;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --text-inverted: #f8fafc;
 
-  /* Borders (#F0EDEE & Deep Teal Harmonized) */
-  --border-subtle: #E8E5E6;
-  --border: #DFDBDC;
-  --border-strong: #C4BEBF;
-  --border-dark: #12474A;
+  /* Borders */
+  --border-subtle: #f1f5f9;
+  --border: #e2e8f0;
+  --border-strong: #cbd5e1;
+  --border-dark: #27272a;
 
-  /* Primary Accent - Deep Teal / Casal (#2C666E) */
-  --primary: #2C666E;
-  --primary-hover: #225157;
-  --primary-subtle: #EAF2F3;
-  --primary-border: #A6C9CD;
-  --primary-gradient: linear-gradient(135deg, #2C666E 0%, #07393C 100%);
-  --primary-gradient-glow: 0 4px 20px -2px rgba(44, 102, 110, 0.35);
+  /* Primary Accent - Precision Indigo / Electric Violet */
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --primary-subtle: #eef2ff;
+  --primary-border: #c7d2fe;
+  --primary-gradient: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%);
+  --primary-gradient-glow: 0 4px 20px -2px rgba(79, 70, 229, 0.25);
 
   /* Status Tokens */
   --emerald: #10b981;
@@ -50,22 +48,22 @@
   --rose-border: #fecdd3;
   --rose-text: #be123c;
 
-  --sky: #2C666E;
-  --sky-bg: #EAF2F3;
-  --sky-border: #BCE0E4;
-  --sky-text: #07393C;
+  --sky: #0ea5e9;
+  --sky-bg: #f0f9ff;
+  --sky-border: #bae6fd;
+  --sky-text: #0369a1;
 
-  --indigo: #2C666E;
-  --indigo-bg: #EAF2F3;
-  --indigo-border: #A6C9CD;
-  --indigo-text: #07393C;
+  --indigo: #6366f1;
+  --indigo-bg: #eef2ff;
+  --indigo-border: #c7d2fe;
+  --indigo-text: #4338ca;
 
   /* Shadows */
-  --shadow-xs: 0 1px 2px 0 rgba(7, 57, 60, 0.04);
-  --shadow-sm: 0 1px 3px 0 rgba(7, 57, 60, 0.07), 0 1px 2px -1px rgba(7, 57, 60, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(7, 57, 60, 0.07), 0 2px 4px -2px rgba(7, 57, 60, 0.05);
-  --shadow-lg: 0 10px 15px -3px rgba(7, 57, 60, 0.08), 0 4px 6px -4px rgba(7, 57, 60, 0.04);
-  --shadow-xl: 0 20px 25px -5px rgba(7, 57, 60, 0.12), 0 8px 10px -6px rgba(7, 57, 60, 0.08);
+  --shadow-xs: 0 1px 2px 0 rgba(15, 23, 42, 0.04);
+  --shadow-sm: 0 1px 3px 0 rgba(15, 23, 42, 0.07), 0 1px 2px -1px rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.07), 0 2px 4px -2px rgba(15, 23, 42, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.04);
+  --shadow-xl: 0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 8px 10px -6px rgba(15, 23, 42, 0.06);
 
   /* Radii */
   --radius-xs: 4px;
@@ -90,7 +88,7 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.011em;
   overflow-x: hidden;
 }
 
@@ -103,11 +101,11 @@ body {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #C4BEBF;
+  background: #cbd5e1;
   border-radius: var(--radius-full);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #2C666E;
+  background: #94a3b8;
 }
 
 /* Button System */
@@ -117,8 +115,8 @@ body {
   justify-content: center;
   gap: 8px;
   font-family: var(--font-sans);
-  font-size: 13.5px;
-  font-weight: 600;
+  font-size: 13px;
+  font-weight: 500;
   border-radius: var(--radius-md);
   border: 1px solid transparent;
   cursor: pointer;
@@ -143,12 +141,11 @@ body {
 .btn-primary {
   background: var(--primary-gradient);
   color: #ffffff;
-  border-color: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.1);
   box-shadow: var(--shadow-sm), var(--primary-gradient-glow);
 }
 .btn-primary:hover {
-  background: linear-gradient(135deg, #32757E 0%, #0A4548 100%);
-  filter: brightness(1.05);
+  filter: brightness(1.06);
 }
 
 .btn-secondary {
@@ -221,12 +218,12 @@ input, select, textarea {
   transition: all 0.15s ease-in-out;
   outline: none;
   width: 100%;
-  box-shadow: inset 0 1px 2px rgba(7, 57, 60, 0.02);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.02);
 }
 
 input:focus, select:focus, textarea:focus {
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(44, 102, 110, 0.16);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
 }
 
 input::placeholder, textarea::placeholder {
@@ -236,7 +233,7 @@ input::placeholder, textarea::placeholder {
 label {
   display: block;
   font-size: 12.5px;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--text-secondary);
   margin-bottom: 5px;
 }
@@ -251,7 +248,7 @@ label {
 }
 
 .card:hover {
-  border-color: #A6C9CD;
+  border-color: #cbd5e1;
 }
 
 /* Modern Data Table */
@@ -276,14 +273,14 @@ table {
 }
 
 thead {
-  background: #F8F6F7;
+  background: #fafbfc;
   border-bottom: 1px solid var(--border);
 }
 
 th {
   padding: 12px 16px;
   font-size: 11.5px;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   color: var(--text-muted);
@@ -297,7 +294,7 @@ th.sortable {
 }
 
 th.sortable:hover {
-  color: var(--primary);
+  color: var(--text-primary);
 }
 
 td {
@@ -316,7 +313,7 @@ tbody tr {
 }
 
 tbody tr:hover {
-  background-color: #F8F6F7;
+  background-color: #f8fafc;
 }
 
 /* Chip Badges */
@@ -327,7 +324,7 @@ tbody tr:hover {
   padding: 3px 8px;
   border-radius: var(--radius-full);
   font-size: 11.5px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.2;
   white-space: nowrap;
 }
@@ -382,22 +379,22 @@ tbody tr:hover {
   border: 1px solid var(--amber-border);
 }
 
-/* Half-day (Teal Sky) */
+/* Half-day (Sky) */
 .badge-Half-day {
-  background: #EAF2F3;
-  color: #07393C;
-  border: 1px solid #BCE0E4;
+  background: var(--sky-bg);
+  color: var(--sky-text);
+  border: 1px solid var(--sky-border);
 }
 
 /* Roles */
 .badge-Admin {
-  background: #EAF2F3;
-  color: #07393C;
-  border: 1px solid #A6C9CD;
+  background: #ede9fe;
+  color: #6d28d9;
+  border: 1px solid #ddd6fe;
 }
 .badge-Employee {
-  background: #F6F4F5;
-  color: #2C666E;
+  background: var(--bg-subtle);
+  color: var(--text-secondary);
   border: 1px solid var(--border);
 }
 
@@ -412,7 +409,7 @@ tbody tr:hover {
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(7, 57, 60, 0.45);
+  background: rgba(15, 23, 42, 0.45);
   backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
@@ -460,12 +457,12 @@ tbody tr:hover {
   pointer-events: auto;
   min-width: 300px;
   max-width: 420px;
-  background: #07393C;
-  color: #F0EDEE;
+  background: #0f172a;
+  color: #f8fafc;
   padding: 12px 16px;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-lg);
-  border: 1px solid #144D50;
+  border: 1px solid #334155;
   display: flex;
   align-items: flex-start;
   gap: 12px;
@@ -480,7 +477,7 @@ tbody tr:hover {
   border-left: 4px solid var(--rose);
 }
 .toast.toast-info {
-  border-left: 4px solid #2C666E;
+  border-left: 4px solid var(--sky);
 }
 
 @keyframes slideInRight {

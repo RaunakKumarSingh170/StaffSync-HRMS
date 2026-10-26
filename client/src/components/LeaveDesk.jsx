@@ -3,7 +3,11 @@ import {
   Calendar,
   CheckCircle2,
   XCircle,
+  Clock,
   Send,
+  User,
+  Filter,
+  AlertCircle,
 } from 'lucide-react';
 import LeaveBalanceCard from './LeaveBalanceCard';
 
@@ -41,6 +45,7 @@ export default function LeaveDesk({
 
   // Filter leaves
   const displayLeaves = leaves.filter((l) => {
+    // If not admin, only show user's leaves
     const isOwner =
       l.employee?._id === user?.id ||
       l.employee?._id === user?._id ||
@@ -83,8 +88,8 @@ export default function LeaveDesk({
                   width: '32px',
                   height: '32px',
                   borderRadius: '8px',
-                  background: '#EAF2F3',
-                  color: '#2C666E',
+                  background: '#eef2ff',
+                  color: '#4f46e5',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -93,8 +98,8 @@ export default function LeaveDesk({
                 <Calendar size={18} />
               </div>
               <div>
-                <h3 style={{ fontSize: '16px', fontWeight: '700', color: 'var(--text-primary)' }}>Request Time-Off</h3>
-                <p style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>Submit vacation or sick leave request</p>
+                <h3 style={{ fontSize: '16px', fontWeight: '600', color: '#0f172a' }}>Request Time-Off</h3>
+                <p style={{ fontSize: '12px', color: '#64748b' }}>Submit vacation or sick leave request</p>
               </div>
             </div>
 
@@ -162,10 +167,10 @@ export default function LeaveDesk({
             <div
               style={{
                 display: 'flex',
-                background: 'var(--bg-subtle)',
+                background: '#f1f5f9',
                 padding: '3px',
                 borderRadius: '8px',
-                border: '1px solid var(--border)',
+                border: '1px solid #e2e8f0',
               }}
             >
               {['All', 'Pending', 'Approved', 'Rejected'].map((status) => (
@@ -175,11 +180,11 @@ export default function LeaveDesk({
                   onClick={() => setStatusFilter(status)}
                   style={{
                     background: statusFilter === status ? '#ffffff' : 'transparent',
-                    color: statusFilter === status ? '#07393C' : 'var(--text-secondary)',
+                    color: statusFilter === status ? '#0f172a' : '#64748b',
                     boxShadow: statusFilter === status ? 'var(--shadow-xs)' : 'none',
                     padding: '5px 12px',
                     fontSize: '12px',
-                    fontWeight: statusFilter === status ? '700' : '500',
+                    fontWeight: statusFilter === status ? '600' : '500',
                     borderRadius: '6px',
                     cursor: 'pointer',
                     border: 'none',
@@ -191,7 +196,7 @@ export default function LeaveDesk({
               ))}
             </div>
 
-            <span style={{ fontSize: '12.5px', color: 'var(--text-secondary)' }}>
+            <span style={{ fontSize: '12.5px', color: '#64748b' }}>
               Showing {displayLeaves.length} records
             </span>
           </div>
@@ -213,7 +218,7 @@ export default function LeaveDesk({
                   {displayLeaves.length === 0 ? (
                     <tr>
                       <td colSpan={user?.role === 'Admin' ? 6 : 5} style={{ textAlign: 'center', padding: '36px' }}>
-                        <div style={{ color: 'var(--text-muted)', fontSize: '13px' }}>
+                        <div style={{ color: '#94a3b8', fontSize: '13px' }}>
                           No leave applications recorded under this filter.
                         </div>
                       </td>
@@ -233,8 +238,8 @@ export default function LeaveDesk({
                                   width: '28px',
                                   height: '28px',
                                   borderRadius: '50%',
-                                  background: '#EAF2F3',
-                                  color: '#2C666E',
+                                  background: '#eef2ff',
+                                  color: '#4f46e5',
                                   display: 'flex',
                                   alignItems: 'center',
                                   justifyContent: 'center',
@@ -245,8 +250,8 @@ export default function LeaveDesk({
                                 {empName[0]}
                               </div>
                               <div>
-                                <strong style={{ color: 'var(--text-primary)' }}>{empName}</strong>
-                                <div style={{ fontSize: '11.5px', color: 'var(--text-secondary)' }}>{empDept}</div>
+                                <strong style={{ color: '#0f172a' }}>{empName}</strong>
+                                <div style={{ fontSize: '11.5px', color: '#64748b' }}>{empDept}</div>
                               </div>
                             </div>
                           </td>
@@ -254,13 +259,13 @@ export default function LeaveDesk({
                           <td>
                             <span
                               style={{
-                                background: 'var(--bg-subtle)',
-                                border: '1px solid var(--border)',
+                                background: '#f8fafc',
+                                border: '1px solid #e2e8f0',
                                 padding: '3px 8px',
                                 borderRadius: '6px',
                                 fontSize: '12px',
-                                color: 'var(--text-primary)',
-                                fontWeight: '600',
+                                color: '#334155',
+                                fontWeight: '500',
                               }}
                             >
                               {l.type} Leave
@@ -268,17 +273,17 @@ export default function LeaveDesk({
                           </td>
 
                           <td>
-                            <div style={{ fontSize: '13px', color: 'var(--text-primary)', fontWeight: '600' }}>
+                            <div style={{ fontSize: '13px', color: '#0f172a', fontWeight: '500' }}>
                               {new Date(l.startDate).toLocaleDateString([], { month: 'short', day: 'numeric' })} -{' '}
                               {new Date(l.endDate).toLocaleDateString([], { month: 'short', day: 'numeric', year: 'numeric' })}
                             </div>
-                            <div style={{ fontSize: '11.5px', color: 'var(--text-secondary)' }}>
+                            <div style={{ fontSize: '11.5px', color: '#64748b' }}>
                               {daysCount} {daysCount === 1 ? 'day' : 'days'}
                             </div>
                           </td>
 
                           <td style={{ maxWidth: '240px' }}>
-                            <span style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: '1.4' }}>
+                            <span style={{ fontSize: '13px', color: '#475569', lineHeight: '1.4' }}>
                               {l.reason}
                             </span>
                           </td>
@@ -311,7 +316,7 @@ export default function LeaveDesk({
                                   </button>
                                 </div>
                               ) : (
-                                <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>
+                                <span style={{ fontSize: '12px', color: '#94a3b8' }}>
                                   Reviewed
                                 </span>
                               )}

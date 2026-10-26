@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Clock, Play, Square, CheckCircle, Calendar, History } from 'lucide-react';
+import { Clock, Play, Square, CheckCircle, Calendar, History, ArrowRight } from 'lucide-react';
 
 export default function AttendanceWidget({
   user,
@@ -67,8 +67,8 @@ export default function AttendanceWidget({
                 width: '32px',
                 height: '32px',
                 borderRadius: '8px',
-                background: '#EAF2F3',
-                color: '#2C666E',
+                background: '#eef2ff',
+                color: '#4f46e5',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -77,8 +77,8 @@ export default function AttendanceWidget({
               <Clock size={18} />
             </div>
             <div>
-              <h3 style={{ fontSize: '16px', fontWeight: '700', color: 'var(--text-primary)' }}>Attendance Punch Desk</h3>
-              <p style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>
+              <h3 style={{ fontSize: '16px', fontWeight: '600', color: '#0f172a' }}>Attendance Punch Desk</h3>
+              <p style={{ fontSize: '12px', color: '#64748b' }}>
                 Daily biometric time tracking & shifts
               </p>
             </div>
@@ -88,20 +88,19 @@ export default function AttendanceWidget({
         {/* Live Digital Clock Badge */}
         <div
           style={{
-            background: '#07393C',
-            color: '#F0EDEE',
+            background: '#0f172a',
+            color: '#f8fafc',
             padding: '6px 14px',
             borderRadius: '8px',
             textAlign: 'right',
             fontFamily: 'var(--font-mono)',
             boxShadow: 'var(--shadow-sm)',
-            border: '1px solid #144D50',
           }}
         >
           <div style={{ fontSize: '15px', fontWeight: '600', letterSpacing: '0.05em' }}>
             {currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })}
           </div>
-          <div style={{ fontSize: '11px', color: '#A6C9CD', fontFamily: 'var(--font-sans)', marginTop: '1px' }}>
+          <div style={{ fontSize: '11px', color: '#94a3b8', fontFamily: 'var(--font-sans)', marginTop: '1px' }}>
             {currentTime.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' })}
           </div>
         </div>
@@ -110,8 +109,8 @@ export default function AttendanceWidget({
       {/* Status Center Banner */}
       <div
         style={{
-          background: isClockedIn && !isClockedOut ? '#EAF2F3' : isClockedOut ? 'var(--bg-subtle)' : 'var(--bg-subtle)',
-          border: `1px solid ${isClockedIn && !isClockedOut ? '#A6C9CD' : 'var(--border)'}`,
+          background: isClockedIn && !isClockedOut ? '#f0fdf4' : isClockedOut ? '#f8fafc' : '#f8fafc',
+          border: `1px solid ${isClockedIn && !isClockedOut ? '#bbf7d0' : '#e2e8f0'}`,
           borderRadius: '10px',
           padding: '18px 20px',
           display: 'flex',
@@ -122,7 +121,7 @@ export default function AttendanceWidget({
         }}
       >
         <div>
-          <div style={{ fontSize: '12px', fontWeight: '600', color: 'var(--text-secondary)', marginBottom: '4px' }}>
+          <div style={{ fontSize: '12px', fontWeight: '500', color: '#64748b', marginBottom: '4px' }}>
             CURRENT SHIFT STATUS
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -147,7 +146,7 @@ export default function AttendanceWidget({
 
         {/* Live Duration Counter */}
         <div style={{ textAlign: 'right' }}>
-          <div style={{ fontSize: '12px', fontWeight: '600', color: 'var(--text-secondary)' }}>
+          <div style={{ fontSize: '12px', fontWeight: '500', color: '#64748b' }}>
             {isClockedOut ? 'TOTAL LOGGED' : 'ACTIVE SESSION'}
           </div>
           <div
@@ -155,7 +154,7 @@ export default function AttendanceWidget({
               fontSize: '22px',
               fontWeight: '700',
               fontFamily: 'var(--font-mono)',
-              color: isClockedIn && !isClockedOut ? '#2C666E' : 'var(--text-primary)',
+              color: isClockedIn && !isClockedOut ? '#16a34a' : '#0f172a',
             }}
           >
             {isClockedIn ? elapsedDuration : '00h 00m 00s'}
@@ -165,23 +164,23 @@ export default function AttendanceWidget({
 
       {/* Metrics Row: In / Out / Shift Info */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px' }}>
-        <div style={{ background: 'var(--bg-subtle)', border: '1px solid var(--border)', borderRadius: '8px', padding: '12px' }}>
-          <div style={{ fontSize: '11px', color: 'var(--text-secondary)', fontWeight: '600' }}>FIRST IN</div>
-          <div style={{ fontSize: '15px', fontWeight: '700', color: 'var(--text-primary)', marginTop: '4px' }}>
+        <div style={{ background: '#fafbfc', border: '1px solid #f1f5f9', borderRadius: '8px', padding: '12px' }}>
+          <div style={{ fontSize: '11px', color: '#64748b', fontWeight: '500' }}>FIRST IN</div>
+          <div style={{ fontSize: '15px', fontWeight: '600', color: '#0f172a', marginTop: '4px' }}>
             {currentRecord?.checkIn ? formatTime(currentRecord.checkIn) : '--:--'}
           </div>
         </div>
 
-        <div style={{ background: 'var(--bg-subtle)', border: '1px solid var(--border)', borderRadius: '8px', padding: '12px' }}>
-          <div style={{ fontSize: '11px', color: 'var(--text-secondary)', fontWeight: '600' }}>LAST OUT</div>
-          <div style={{ fontSize: '15px', fontWeight: '700', color: 'var(--text-primary)', marginTop: '4px' }}>
+        <div style={{ background: '#fafbfc', border: '1px solid #f1f5f9', borderRadius: '8px', padding: '12px' }}>
+          <div style={{ fontSize: '11px', color: '#64748b', fontWeight: '500' }}>LAST OUT</div>
+          <div style={{ fontSize: '15px', fontWeight: '600', color: '#0f172a', marginTop: '4px' }}>
             {currentRecord?.checkOut ? formatTime(currentRecord.checkOut) : '--:--'}
           </div>
         </div>
 
-        <div style={{ background: 'var(--bg-subtle)', border: '1px solid var(--border)', borderRadius: '8px', padding: '12px' }}>
-          <div style={{ fontSize: '11px', color: 'var(--text-secondary)', fontWeight: '600' }}>EXPECTED</div>
-          <div style={{ fontSize: '15px', fontWeight: '700', color: 'var(--text-primary)', marginTop: '4px' }}>
+        <div style={{ background: '#fafbfc', border: '1px solid #f1f5f9', borderRadius: '8px', padding: '12px' }}>
+          <div style={{ fontSize: '11px', color: '#64748b', fontWeight: '500' }}>EXPECTED</div>
+          <div style={{ fontSize: '15px', fontWeight: '600', color: '#0f172a', marginTop: '4px' }}>
             8.0 hrs / Day
           </div>
         </div>
@@ -212,12 +211,12 @@ export default function AttendanceWidget({
             style={{
               width: '100%',
               padding: '12px',
-              background: 'var(--bg-subtle)',
-              border: '1px dashed var(--border-strong)',
+              background: '#f8fafc',
+              border: '1px dashed #cbd5e1',
               borderRadius: '8px',
               textAlign: 'center',
               fontSize: '13px',
-              color: 'var(--text-secondary)',
+              color: '#64748b',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -232,9 +231,9 @@ export default function AttendanceWidget({
 
       {/* Attendance History Preview */}
       {attendanceLogs && attendanceLogs.length > 0 && (
-        <div style={{ borderTop: '1px solid var(--border)', paddingTop: '16px' }}>
+        <div style={{ borderTop: '1px solid #f1f5f9', paddingTop: '16px' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
-            <span style={{ fontSize: '12px', fontWeight: '700', color: 'var(--text-secondary)', display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <span style={{ fontSize: '12px', fontWeight: '600', color: '#475569', display: 'flex', alignItems: 'center', gap: '6px' }}>
               <History size={14} /> Recent Work Logs
             </span>
           </div>
@@ -247,21 +246,20 @@ export default function AttendanceWidget({
                   justifyContent: 'space-between',
                   alignItems: 'center',
                   padding: '8px 10px',
-                  background: 'var(--bg-subtle)',
+                  background: '#fafbfc',
                   borderRadius: '6px',
-                  border: '1px solid var(--border-subtle)',
                   fontSize: '12px',
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <Calendar size={13} color="var(--text-muted)" />
-                  <span style={{ fontWeight: '600', color: 'var(--text-primary)' }}>{log.date}</span>
+                  <Calendar size={13} color="#94a3b8" />
+                  <span style={{ fontWeight: '500', color: '#1e293b' }}>{log.date}</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                  <span style={{ color: 'var(--text-secondary)' }}>
+                  <span style={{ color: '#64748b' }}>
                     {formatTime(log.checkIn)} - {formatTime(log.checkOut)}
                   </span>
-                  <span style={{ fontWeight: '700', color: 'var(--text-primary)' }}>
+                  <span style={{ fontWeight: '600', color: '#0f172a' }}>
                     {log.workHours > 0 ? `${log.workHours}h` : 'Active'}
                   </span>
                   <span className={`badge badge-${log.status}`} style={{ fontSize: '10.5px', padding: '2px 6px' }}>

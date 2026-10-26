@@ -9,6 +9,7 @@ import {
   LogOut,
   Shield,
   User as UserIcon,
+  ChevronRight,
   Sparkles,
   Building2,
   RefreshCw,
@@ -50,12 +51,12 @@ export default function Sidebar({
     <aside
       style={{
         width: '264px',
-        background: '#07393C',
-        color: '#F0EDEE',
+        background: '#0f172a',
+        color: '#f8fafc',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
-        borderRight: '1px solid #12474A',
+        borderRight: '1px solid #1e293b',
         flexShrink: 0,
         height: '100vh',
         position: 'sticky',
@@ -64,44 +65,44 @@ export default function Sidebar({
     >
       {/* Top Brand Header */}
       <div>
-        <div style={{ padding: '20px 20px 16px', borderBottom: '1px solid #12474A' }}>
+        <div style={{ padding: '20px 20px 16px', borderBottom: '1px solid #1e293b' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <div
               style={{
                 width: '34px',
                 height: '34px',
                 borderRadius: '8px',
-                background: 'linear-gradient(135deg, #2C666E 0%, #16565B 100%)',
+                background: 'linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 color: '#ffffff',
-                boxShadow: '0 2px 10px rgba(44, 102, 110, 0.45)',
+                boxShadow: '0 2px 10px rgba(79, 70, 229, 0.4)',
               }}
             >
               <Sparkles size={18} />
             </div>
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <span style={{ fontSize: '16px', fontWeight: '700', letterSpacing: '-0.02em', color: '#F0EDEE' }}>
+                <span style={{ fontSize: '16px', fontWeight: '700', letterSpacing: '-0.02em', color: '#ffffff' }}>
                   StaffSync
                 </span>
                 <span
                   style={{
-                    background: '#0E474B',
-                    color: '#90DDF0',
+                    background: '#1e293b',
+                    color: '#93c5fd',
                     fontSize: '9.5px',
                     fontWeight: '700',
                     padding: '1px 5px',
                     borderRadius: '4px',
-                    border: '1px solid #1E5C60',
+                    border: '1px solid #334155',
                     letterSpacing: '0.04em',
                   }}
                 >
                   ENTERPRISE
                 </span>
               </div>
-              <div style={{ fontSize: '11px', color: '#A6C9CD', display: 'flex', alignItems: 'center', gap: '4px', marginTop: '1px' }}>
+              <div style={{ fontSize: '11px', color: '#94a3b8', display: 'flex', alignItems: 'center', gap: '4px', marginTop: '1px' }}>
                 <Building2 size={11} /> Acme Global Corp
               </div>
             </div>
@@ -110,7 +111,7 @@ export default function Sidebar({
 
         {/* Navigation Links */}
         <div style={{ padding: '16px 12px' }}>
-          <div style={{ fontSize: '10.5px', fontWeight: '700', color: '#7A8D90', textTransform: 'uppercase', letterSpacing: '0.06em', padding: '0 8px 8px' }}>
+          <div style={{ fontSize: '10.5px', fontWeight: '600', color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.06em', padding: '0 8px 8px' }}>
             Workforce Platform
           </div>
           <nav style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
@@ -131,21 +132,21 @@ export default function Sidebar({
                     padding: '9px 12px',
                     borderRadius: '8px',
                     border: 'none',
-                    background: isActive ? '#0E474B' : 'transparent',
-                    color: isActive ? '#F0EDEE' : '#A6C9CD',
+                    background: isActive ? '#1e293b' : 'transparent',
+                    color: isActive ? '#ffffff' : '#94a3b8',
                     cursor: 'pointer',
                     fontSize: '13px',
-                    fontWeight: isActive ? '700' : '500',
+                    fontWeight: isActive ? '600' : '500',
                     textAlign: 'left',
                     transition: 'all 0.15s ease',
-                    boxShadow: isActive ? 'inset 0 1px 0 rgba(255,255,255,0.08)' : 'none',
+                    boxShadow: isActive ? 'inset 0 1px 0 rgba(255,255,255,0.06)' : 'none',
                     position: 'relative',
                   }}
                   onMouseEnter={(e) => {
-                    if (!isActive) e.currentTarget.style.color = '#F0EDEE';
+                    if (!isActive) e.currentTarget.style.color = '#f1f5f9';
                   }}
                   onMouseLeave={(e) => {
-                    if (!isActive) e.currentTarget.style.color = '#A6C9CD';
+                    if (!isActive) e.currentTarget.style.color = '#94a3b8';
                   }}
                 >
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -154,14 +155,14 @@ export default function Sidebar({
                         style={{
                           position: 'absolute',
                           left: '0px',
-                          width: '3.5px',
+                          width: '3px',
                           height: '18px',
                           borderRadius: '0 4px 4px 0',
-                          background: '#2C666E',
+                          background: '#4f46e5',
                         }}
                       />
                     )}
-                    <Icon size={16} color={isActive ? '#90DDF0' : '#7A8D90'} />
+                    <Icon size={16} color={isActive ? '#818cf8' : '#64748b'} />
                     <span>{item.label}</span>
                   </div>
 
@@ -169,7 +170,7 @@ export default function Sidebar({
                     <span
                       style={{
                         background: '#f59e0b',
-                        color: '#07393C',
+                        color: '#0f172a',
                         fontWeight: '700',
                         fontSize: '10.5px',
                         padding: '1px 6px',
@@ -188,7 +189,7 @@ export default function Sidebar({
       </div>
 
       {/* Bottom Profile & Session Card */}
-      <div style={{ padding: '16px', borderTop: '1px solid #12474A' }}>
+      <div style={{ padding: '16px', borderTop: '1px solid #1e293b' }}>
         {/* Quick Demo Switcher */}
         {onSwitchDemoAccount && (
           <button
@@ -196,13 +197,13 @@ export default function Sidebar({
             onClick={onSwitchDemoAccount}
             style={{
               width: '100%',
-              background: '#0E474B',
-              border: '1px solid #1E5C60',
+              background: '#1e293b',
+              border: '1px solid #334155',
               borderRadius: '6px',
               padding: '6px 10px',
-              color: '#90DDF0',
+              color: '#93c5fd',
               fontSize: '11.5px',
-              fontWeight: '600',
+              fontWeight: '500',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
@@ -224,10 +225,10 @@ export default function Sidebar({
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            background: 'rgba(14, 71, 75, 0.65)',
+            background: 'rgba(30, 41, 59, 0.6)',
             padding: '10px',
             borderRadius: '8px',
-            border: '1px solid #1E5C60',
+            border: '1px solid #1e293b',
           }}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '9px', minWidth: 0 }}>
@@ -236,8 +237,8 @@ export default function Sidebar({
                 width: '32px',
                 height: '32px',
                 borderRadius: '50%',
-                background: user?.role === 'Admin' ? '#2C666E' : '#16565B',
-                color: '#F0EDEE',
+                background: user?.role === 'Admin' ? '#4f46e5' : '#0284c7',
+                color: '#ffffff',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -253,7 +254,7 @@ export default function Sidebar({
                 style={{
                   fontSize: '12.5px',
                   fontWeight: '600',
-                  color: '#F0EDEE',
+                  color: '#ffffff',
                   whiteSpace: 'nowrap',
                   textOverflow: 'ellipsis',
                   overflow: 'hidden',
@@ -261,15 +262,15 @@ export default function Sidebar({
               >
                 {user?.name}
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '11px', color: '#A6C9CD' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '11px', color: '#94a3b8' }}>
                 <span
                   style={{
-                    background: '#12474A',
-                    color: '#BCE0E4',
+                    background: user?.role === 'Admin' ? '#3730a3' : '#1e293b',
+                    color: user?.role === 'Admin' ? '#c7d2fe' : '#94a3b8',
                     padding: '0 4px',
                     borderRadius: '3px',
                     fontSize: '9.5px',
-                    fontWeight: '700',
+                    fontWeight: '600',
                   }}
                 >
                   {user?.role}
@@ -287,7 +288,7 @@ export default function Sidebar({
             style={{
               background: 'transparent',
               border: 'none',
-              color: '#A6C9CD',
+              color: '#94a3b8',
               cursor: 'pointer',
               padding: '6px',
               borderRadius: '4px',
