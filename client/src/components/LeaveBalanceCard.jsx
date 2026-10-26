@@ -2,7 +2,7 @@ import React from 'react';
 import { Calendar, Palmtree, Stethoscope, Compass, Plus } from 'lucide-react';
 
 // Circular Progress Ring component
-function ProgressRing({ radius = 28, stroke = 4, progress = 0, strokeColor = '#2C666E' }) {
+function ProgressRing({ radius = 28, stroke = 4, progress = 0, strokeColor = '#4f46e5' }) {
   const normalizedRadius = radius - stroke * 2;
   const circumference = normalizedRadius * 2 * Math.PI;
   const strokeDashoffset = circumference - (Math.min(100, Math.max(0, progress)) / 100) * circumference;
@@ -10,7 +10,7 @@ function ProgressRing({ radius = 28, stroke = 4, progress = 0, strokeColor = '#2
   return (
     <svg height={radius * 2} width={radius * 2} style={{ transform: 'rotate(-90deg)' }}>
       <circle
-        stroke="var(--border)"
+        stroke="#f1f5f9"
         fill="transparent"
         strokeWidth={stroke}
         r={normalizedRadius}
@@ -44,8 +44,8 @@ export default function LeaveBalanceCard({ leaveBalance, onApplyClick }) {
       key: 'casual',
       name: 'Casual Leave',
       icon: Palmtree,
-      color: '#2C666E',
-      lightBg: '#EAF2F3',
+      color: '#4f46e5',
+      lightBg: '#eef2ff',
       data: balance.casual,
     },
     {
@@ -75,8 +75,8 @@ export default function LeaveBalanceCard({ leaveBalance, onApplyClick }) {
               width: '32px',
               height: '32px',
               borderRadius: '8px',
-              background: '#EAF2F3',
-              color: '#2C666E',
+              background: '#f0fdf4',
+              color: '#10b981',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -85,8 +85,8 @@ export default function LeaveBalanceCard({ leaveBalance, onApplyClick }) {
             <Calendar size={18} />
           </div>
           <div>
-            <h3 style={{ fontSize: '16px', fontWeight: '700', color: 'var(--text-primary)' }}>Leave Balance Allocation</h3>
-            <p style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>Current fiscal year time-off quotas</p>
+            <h3 style={{ fontSize: '16px', fontWeight: '600', color: '#0f172a' }}>Leave Balance Allocation</h3>
+            <p style={{ fontSize: '12px', color: '#64748b' }}>Current fiscal year time-off quotas</p>
           </div>
         </div>
 
@@ -110,8 +110,8 @@ export default function LeaveBalanceCard({ leaveBalance, onApplyClick }) {
             <div
               key={cat.key}
               style={{
-                background: 'var(--bg-subtle)',
-                border: '1px solid var(--border)',
+                background: '#fafbfc',
+                border: '1px solid #e2e8f0',
                 borderRadius: '10px',
                 padding: '16px',
                 display: 'flex',
@@ -136,7 +136,7 @@ export default function LeaveBalanceCard({ leaveBalance, onApplyClick }) {
                   >
                     <Icon size={15} />
                   </div>
-                  <span style={{ fontSize: '13px', fontWeight: '700', color: 'var(--text-primary)' }}>{cat.name}</span>
+                  <span style={{ fontSize: '13px', fontWeight: '600', color: '#1e293b' }}>{cat.name}</span>
                 </div>
 
                 {/* Progress Ring */}
@@ -147,7 +147,7 @@ export default function LeaveBalanceCard({ leaveBalance, onApplyClick }) {
                       position: 'absolute',
                       fontSize: '9px',
                       fontWeight: '700',
-                      color: 'var(--text-primary)',
+                      color: '#475569',
                       fontFamily: 'var(--font-mono)',
                     }}
                   >
@@ -159,10 +159,10 @@ export default function LeaveBalanceCard({ leaveBalance, onApplyClick }) {
               {/* Big metric */}
               <div>
                 <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px' }}>
-                  <span style={{ fontSize: '24px', fontWeight: '700', color: 'var(--text-primary)', letterSpacing: '-0.02em' }}>
+                  <span style={{ fontSize: '24px', fontWeight: '700', color: '#0f172a', letterSpacing: '-0.02em' }}>
                     {remaining}
                   </span>
-                  <span style={{ fontSize: '13px', color: 'var(--text-secondary)', fontWeight: '600' }}>/ {total} days left</span>
+                  <span style={{ fontSize: '13px', color: '#64748b', fontWeight: '500' }}>/ {total} days left</span>
                 </div>
 
                 {/* Meter track */}
@@ -170,7 +170,7 @@ export default function LeaveBalanceCard({ leaveBalance, onApplyClick }) {
                   style={{
                     height: '6px',
                     width: '100%',
-                    background: 'var(--border)',
+                    background: '#e2e8f0',
                     borderRadius: '999px',
                     marginTop: '8px',
                     overflow: 'hidden',
@@ -194,14 +194,14 @@ export default function LeaveBalanceCard({ leaveBalance, onApplyClick }) {
                   display: 'flex',
                   justifyContent: 'space-between',
                   fontSize: '11.5px',
-                  color: 'var(--text-secondary)',
-                  borderTop: '1px solid var(--border-subtle)',
+                  color: '#64748b',
+                  borderTop: '1px solid #f1f5f9',
                   paddingTop: '8px',
                 }}
               >
                 <span>Used: <strong>{used}d</strong></span>
                 {cat.data?.pending > 0 && (
-                  <span style={{ color: '#b45309' }}>Pending: <strong>{cat.data.pending}d</strong></span>
+                  <span style={{ color: '#d97706' }}>Pending: <strong>{cat.data.pending}d</strong></span>
                 )}
                 <span>Total: <strong>{total}d</strong></span>
               </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Menu, Bell, Shield, User as UserIcon } from 'lucide-react';
+import { Menu, Bell, Shield, User as UserIcon, Sparkles } from 'lucide-react';
 
 const TAB_TITLES = {
   dashboard: { title: 'Executive Overview', desc: 'Real-time metrics, workforce KPIs and attendance' },
@@ -22,7 +22,7 @@ export default function Header({
     <header
       style={{
         background: '#ffffff',
-        borderBottom: '1px solid var(--border)',
+        borderBottom: '1px solid #e2e8f0',
         padding: '16px 28px',
         display: 'flex',
         alignItems: 'center',
@@ -46,11 +46,11 @@ export default function Header({
 
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <h1 style={{ fontSize: '18px', fontWeight: '700', color: 'var(--text-primary)', letterSpacing: '-0.02em' }}>
+            <h1 style={{ fontSize: '18px', fontWeight: '700', color: '#0f172a', letterSpacing: '-0.02em' }}>
               {current.title}
             </h1>
           </div>
-          <p style={{ fontSize: '12.5px', color: 'var(--text-secondary)', marginTop: '1px' }}>
+          <p style={{ fontSize: '12.5px', color: '#64748b', marginTop: '1px' }}>
             {current.desc}
           </p>
         </div>
@@ -64,12 +64,12 @@ export default function Header({
               width: '34px',
               height: '34px',
               borderRadius: '8px',
-              border: '1px solid var(--border)',
+              border: '1px solid #e2e8f0',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              color: 'var(--text-secondary)',
-              background: 'var(--bg-subtle)',
+              color: '#475569',
+              background: '#f8fafc',
             }}
           >
             <Bell size={16} />
@@ -96,19 +96,19 @@ export default function Header({
             display: 'flex',
             alignItems: 'center',
             gap: '8px',
-            padding: '5px 12px',
-            background: 'var(--bg-subtle)',
-            border: '1px solid var(--border)',
+            padding: '5px 10px',
+            background: '#f8fafc',
+            border: '1px solid #e2e8f0',
             borderRadius: '20px',
             fontSize: '12.5px',
           }}
         >
           {user?.role === 'Admin' ? (
-            <Shield size={14} color="#2C666E" />
+            <Shield size={14} color="#4f46e5" />
           ) : (
-            <UserIcon size={14} color="#2C666E" />
+            <UserIcon size={14} color="#0284c7" />
           )}
-          <span style={{ fontWeight: '600', color: 'var(--text-primary)' }}>{user?.name}</span>
+          <span style={{ fontWeight: '600', color: '#1e293b' }}>{user?.name}</span>
           <span className={`badge badge-${user?.role}`} style={{ fontSize: '10px', padding: '1px 6px' }}>
             {user?.role}
           </span>
